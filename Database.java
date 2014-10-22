@@ -15,7 +15,20 @@ public class Database {
 	public static void setStorage(ArrayList<String> storage) {
 		Database.storage = storage;
 	}
+	
+	// method to format the concatenation of a String object
+	private static String concatenateString(String master, String newStr) {
+		if (master.equals("")) {
+			return newStr;
+		} 	else if (newStr.equals("")) {
+			return master;
+		}	else {
+			return master + " " + newStr;
+		}
+	}
 
+	// method to add a "record" to the ArrayList storage
+	// a record is a String object made up of the identifier, fieldName, and fieldValue
 	public static void insert(String identifier, String fieldName, String fieldValue) {
 		String record = identifier + " " + fieldName + " " + fieldValue;
 		// only add the record if it is not already contained in the list
@@ -24,43 +37,44 @@ public class Database {
 		}
 	}
 	
+	
 	public static String search(String fieldName, String fieldValue) {
-		//String identifiers = new String();
 		String identifiers = "";
 		for (String s : Database.storage) {
 			String[] recordArray = s.split("\\s+");
 			if (fieldName.equals(recordArray[1]) && fieldValue.equals(recordArray[2])) {
-				System.out.println("in initial if");
-				if (identifiers == "") {
-					
-					identifiers = recordArray[0];
-				} else {
-					identifiers = " " + recordArray[0];
-				}		
+				// use concatenateString to format the String object
+				identifiers = concatenateString(identifiers, recordArray[0]);
 			}
 		}
 		return identifiers;
 	}
 	
+	
+	// returns the size of the data structure
 	public static int size() {
 		return Database.storage.size();
 	}
 
+
+	// convert the contents of the ArrayList to a String object
 	public static String arrayListToString() {
-		String contents = new String();
+		String contents = "";
 		for (String s : Database.storage) {
-			contents = contents + s;
+			// use concatenateString method to format the string
+			contents = concatenateString(contents, s);
 		}
 		return contents;
 		
 	}
 
 	
-/*	
+/*
 	public static void main(String[] args) {
 		Database.insert("doc1", "part", "nail");
 		Database.insert("doc1", "part", "nail");
 		Database.insert("doc2", "partNo", "1234");
+		Database.insert("doc2",  "part",  "nail");
 		System.out.println(Database.size());
 		//System.out.println(Database.toString());
 		System.out.println(Database.search("part", "nail"));
