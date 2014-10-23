@@ -1,7 +1,7 @@
-package org.uiowa.cs2820;
+package org.uiowa.cs2820.engine;
 
-import org.uiowa.cs2820.Field;
-import org.uiowa.cs2820.Database;
+import org.uiowa.cs2820.engine.Field;
+import org.uiowa.cs2820.engine.Database;
 
 public class Indexer {
 	protected String identifier;
@@ -19,5 +19,9 @@ public class Indexer {
 	
 	public void close(){
 		this.closed = true;
+	}
+	
+	public boolean isClosed(){
+		return this.closed;
 	}
 }
