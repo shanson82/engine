@@ -1,7 +1,7 @@
-package org.uiowa.cs2820;
+package org.uiowa.cs2820.engine;
 
-import org.uiowa.cs2820.Field;
-import org.uiowa.cs2820.Database;
+import org.uiowa.cs2820.engine.Field;
+import org.uiowa.cs2820.engine.Database;
 
 public class Indexer {
 	protected String identifier;
@@ -9,6 +9,14 @@ public class Indexer {
 	
 	public Indexer(String identifier){
 		this.identifier = identifier;
+	}
+	
+	public String getIdentifier(){
+		return this.identifier;
+	}
+	
+	public boolean isClosed(){
+		return this.closed;
 	}
 	
 	public void add(Field f) throws Exception{
