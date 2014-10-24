@@ -7,18 +7,10 @@ import java.util.*;
 
 public class FieldSearch {
 	
-	private Database database;
-	protected boolean closed = false;
+	public String[] findEquals(Field f){
+		String result = Database.search(f.getfieldName(), f.getfieldValue());
+		String[] identifiers = result.split("\\s+");
 	
-	public FieldSearch(Database database){
-		this.Database = database;
-		
-	}
-	
-	public void findEquals(Field f) throws Exception{
-		if(this.closed)
-			throw new Exception("Cannot search");
-		Database.search(f.getfieldName(), f.getfieldValue());
-
+		return identifiers;
 	}
 }
