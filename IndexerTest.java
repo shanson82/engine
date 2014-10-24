@@ -32,9 +32,9 @@ public class IndexerTest {
 	
 	@Test
 	public void testGetIdentifier(){
-		assertEqual("Expected 'someIdentifier'",I.getIdentifier(),"someIdentifier");
+		assertEquals("Expected 'someIdentifier'",I.getIdentifier(),"someIdentifier");
 		Indexer I2 = new Indexer("someOtherIdentifier");
-		assertEqual("Expected 'someOtherIdentifier'",I2.getIdentifier(),"someOtherIdentifier");
+		assertEquals("Expected 'someOtherIdentifier'",I2.getIdentifier(),"someOtherIdentifier");
 	}
 
 	@Test
