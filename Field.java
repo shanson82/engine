@@ -1,18 +1,17 @@
 package org.uiowa.cs2820.engine;
 
 public class Field {
-	String myFieldName;
-	String myFieldValue;
+	private String myFieldName;
+	private String myFieldValue;
 	
-	Field(String FieldName, String FieldValue){
+	public Field(String FieldName, String FieldValue) throws Exception{
 		this.myFieldName = FieldName;
 		this.myFieldValue = FieldValue;
-		return;
 	    }
-	String getFieldName() {
+	public String getFieldName() {
 	    return myFieldName;  
 	    }
-	String getFieldValue() {
+	public String getFieldValue() {
 		return myFieldValue;
 	    }
 	}
