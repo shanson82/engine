@@ -1,3 +1,6 @@
+// Steve Hanson
+// Team 6: group members: Clement Yan, JoonYoung Kwon, Anu Ghimire
+
 package org.uiowa.cs2820.engine;
 
 import java.util.*;
@@ -37,7 +40,8 @@ public class Database {
 		}
 	}
 	
-	
+	// method to search the database
+	// takes in a fieldName and fieldValue and returns a String object with any identifiers containing the fieldName and fieldValue
 	public static String search(String fieldName, String fieldValue) {
 		String identifiers = "";
 		for (String s : Database.storage) {
@@ -64,22 +68,8 @@ public class Database {
 			// use concatenateString method to format the string
 			contents = concatenateString(contents, s);
 		}
+		// returns a String object containing the contents of storage
 		return contents;
 		
 	}
-
-	
-/*
-	public static void main(String[] args) {
-		Database.insert("doc1", "part", "nail");
-		Database.insert("doc1", "part", "nail");
-		Database.insert("doc2", "partNo", "1234");
-		Database.insert("doc2",  "part",  "nail");
-		System.out.println(Database.size());
-		//System.out.println(Database.toString());
-		System.out.println(Database.search("part", "nail"));
-		System.out.println(Database.search("partNo", "nail"));
-		System.out.println(Database.search("partNo", "1234"));
-	}
-*/
 }
