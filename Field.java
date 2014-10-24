@@ -10,9 +10,9 @@ public class Field {
 		return;
 	    }
 	String getFieldName() {
-	    return "Field Name is " + myFieldName;  
+	    return myFieldName;  
 	    }
 	String getFieldValue() {
-		return "Field Value is " + myFieldValue;
+		return myFieldValue;
 	    }
 	}
