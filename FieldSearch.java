@@ -8,7 +8,7 @@ import java.util.*;
 public class FieldSearch {
 	
 	public String[] findEquals(Field f){
-		String result = Database.search(f.getfieldName(), f.getfieldValue());
+		String result = Database.search(f.getFieldName(), f.getFieldValue());
 		String[] identifiers = result.split("\\s+");
 	
 		return identifiers;

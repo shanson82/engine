@@ -12,7 +12,7 @@ public class FieldSearchTest {
 		String[] result = {"doc1", "doc2"};
 		Database.insert("doc1", "part", "nail");
 		Database.insert("doc2", "part", "nail");
-		assertArrayEquals(T.findEquals("part","nail"), result);
+		assertArrayEquals(T.findEquals(new Field("part","nail")), result);
 	}
 
 	@Test
@@ -22,7 +22,7 @@ public class FieldSearchTest {
 		Database.insert("doc1", "part", "nail");
 		Database.insert("doc2", "part", "nail");
 		Database.insert("doc3", "part", "nail");
-		assertArrayEquals(T.findEquals("part","nail"), result);
+		assertArrayEquals(T.findEquals(new Field("part","nail")), result);
 	}
 
 
@@ -33,7 +33,7 @@ public class FieldSearchTest {
 		Database.insert("doc1", "hammer", "nail");
 		Database.insert("doc2", "hammer", "nail");
 		Database.insert("doc3", "hammer", "nail");
-		assertArrayEquals(T.findEquals("part","screwdrivers"), result);
+		assertArrayEquals(T.findEquals(new Field("part","screwdrivers")), result);
 	}
 	
 	@Test
@@ -43,6 +43,6 @@ public class FieldSearchTest {
 		Database.insert("doc1", "part", "nail");
 		Database.insert("doc2", "part", "nail");
 		Database.insert("doc3", "part", "nail");
-		assertArrayEquals(T.findEquals("no","result"), result);
+		assertArrayEquals(T.findEquals(new Field("no","result")), result);
 	}
 }

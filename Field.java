@@ -4,7 +4,7 @@ public class Field {
 	String myFieldName;
 	String myFieldValue;
 	
-	Field(String FieldName, String FieldValue) throws Exception{
+	Field(String FieldName, String FieldValue){
 		this.myFieldName = FieldName;
 		this.myFieldValue = FieldValue;
 		return;
