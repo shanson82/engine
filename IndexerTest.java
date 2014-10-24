@@ -19,6 +19,23 @@ public class IndexerTest {
 	public void after(){
 		I = null;
 	}
+	
+	@Test
+	public void testIsClosed(){
+		assertFalse("isClosed() returned true before close",I.isClosed());
+		try{I.add(new Field("someFieldName", "someFieldValue"));}
+		catch(Exception e){fail("Exception thrown by add()");}
+		assertFalse("isClosed() returned false after add but before close",I.isClosed());
+		I.close();
+		assertTrue("isClosed() returned false after close",I.isClosed());
+	}
+	
+	@Test
+	public void testGetIdentifier(){
+		assertEqual("Expected 'someIdentifier'",I.getIdentifier(),"someIdentifier");
+		Indexer I2 = new Indexer("someOtherIdentifier");
+		assertEqual("Expected 'someOtherIdentifier'",I2.getIdentifier(),"someOtherIdentifier");
+	}
 
 	@Test
 	public void testAdd(){
@@ -33,21 +50,6 @@ public class IndexerTest {
 			I.add(new Field("someFieldName", "someFieldValue"));
 			fail("Successfully written to closed Indexer");
 		}catch(Exception e){}
-	}
-	
-	@Test
-	public void testIsClosed1(){
-		try{I.add(new Field("someFieldName", "someFieldValue"));}
-		catch(Exception e){fail("Exception thrown by add()");}
-		assertFalse("isClosed() returned true before close",I.isClosed());
-	}
-	
-	@Test
-	public void testIsClosed2(){
-		try{I.add(new Field("someFieldName", "someFieldValue"));}
-		catch(Exception e){fail("Exception thrown by add()");}
-		I.close();
-		assertTrue("isClosed() returned false after close",I.isClosed());
 	}
 
 }

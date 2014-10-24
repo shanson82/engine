@@ -11,6 +11,14 @@ public class Indexer {
 		this.identifier = identifier;
 	}
 	
+	public String getIdentifier(){
+		return this.identifier;
+	}
+	
+	public boolean isClosed(){
+		return this.closed;
+	}
+	
 	public void add(Field f) throws Exception{
 		if(this.closed)
 			throw new Exception("Cannot add to a closed Indexer");
@@ -19,9 +27,5 @@ public class Indexer {
 	
 	public void close(){
 		this.closed = true;
-	}
-	
-	public boolean isClosed(){
-		return this.closed;
 	}
 }
